@@ -25,6 +25,8 @@ setup      : |
     %patch -p1 -i $pkgfiles/compat-readline6-wcwidth.patch
     %patch -p1 -i $pkgfiles/compat-readline6-configure-c99.patch
 
+    %patch -p1 -i $pkgfiles/readline-6.3-pre-c23.patch
+
     %configure_no_runstatedir \
         --disable-static \
         --with-curses
