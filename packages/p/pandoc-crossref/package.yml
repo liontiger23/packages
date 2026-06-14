@@ -18,7 +18,8 @@ rundeps    :
 networking : true
 setup      : |
     rm $workdir/cabal.project.freeze
-    %cabal_configure --enable-tests --constraint="pandoc == 3.9.0.2"
+    sed -i 's/, pandoc >=3.8.2 \&\& <3.10/, pandoc >=3.8.2 \&\& <3.11/' pandoc-crossref.cabal
+    %cabal_configure --enable-tests --constraint="pandoc == 3.10"
 build      : |
     %haskell_build
 install    : |
